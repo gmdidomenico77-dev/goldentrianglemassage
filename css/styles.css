@@ -208,11 +208,6 @@ a:hover { color: var(--gold-bright); }
 }
 .nav__links a:hover, .nav__links a[aria-current="page"] { color: var(--gold-bright); }
 .nav__links .btn { min-height: 42px; padding: 0.55rem 1.5rem; }
-.nav__call-full { display: none; }
-@media (min-width: 1080px) {
-  .nav__call-full { display: inline; }
-  .nav__call-short { display: none; }
-}
 
 /* mobile nav */
 .nav__toggle {
@@ -250,8 +245,6 @@ a:hover { color: var(--gold-bright); }
     transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out);
   }
   .nav__links a { font-size: var(--text-lg); }
-  .nav__call-full { display: inline; }
-  .nav__call-short { display: none; }
 }
 
 /* ---------- Hero ---------- */
@@ -372,7 +365,28 @@ a:hover { color: var(--gold-bright); }
 .cta-band h2 { font-size: var(--text-3xl); }
 .cta-band p { margin-inline: auto; color: var(--ivory-dim); }
 
-/* Call to book — the phone is the only booking channel, so the number is
+/* Booking — Square Appointments widget.
+   The embed script injects its own iframe with inline width/height and
+   min-height:500px. Inline styles beat stylesheet rules, so the height
+   override below needs !important. Keep .booking free of side padding at
+   small widths: under 280px of container width Square swaps the widget
+   for its own blue button. */
+.booking {
+  max-width: 940px;
+  margin-inline: auto;
+  margin-top: var(--space-12);
+}
+.booking iframe {
+  min-height: 820px !important;
+  border-radius: var(--radius);
+  background: var(--ivory);
+  display: block;
+}
+@media (max-width: 640px) {
+  .booking iframe { min-height: 900px !important; }
+}
+
+/* Call to book — the alternative to the widget above it. The number is
    presented as content in display type, never hidden behind a button label
    that does nothing on desktop. */
 .call-block {

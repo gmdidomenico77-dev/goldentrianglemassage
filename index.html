@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Golden Triangle Massage — Downtown Pittsburgh's Premier Massage Destination</title>
-  <meta name="description" content="A team of skilled therapists delivering a luxurious, restorative massage experience in the heart of downtown Pittsburgh's Golden Triangle. Call to book.">
+  <meta name="description" content="A team of skilled therapists delivering a luxurious, restorative massage experience in the heart of downtown Pittsburgh's Golden Triangle. Book online, or call us.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
         <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a class="btn btn--gold" href="tel:+14124500880"><span class="nav__call-full">Call (412) 450-0880</span><span class="nav__call-short">Call to Book</span></a></li>
+        <li><a class="btn btn--gold" href="#book">Book Now</a></li>
       </ul>
     </div>
   </header>
@@ -50,7 +50,7 @@
         <h1 class="rise" data-rise-delay="120" id="hero-title">Where the three rivers meet, so do renewal and relaxation.</h1>
         <p class="hero__sub rise" data-rise-delay="240">A team of skilled therapists delivering a luxurious, restorative experience in the heart of the city. Minutes from your office, a world away from your day.</p>
         <div class="hero__ctas rise" data-rise-delay="360">
-          <a class="btn btn--gold" href="tel:+14124500880">Call (412) 450-0880</a>
+          <a class="btn btn--gold" href="#book">Book Your Session</a>
           <a class="btn btn--ghost" href="services.html">Explore Services</a>
         </div>
       </div>
@@ -142,8 +142,8 @@
           </div>
           <div class="rise" data-rise-delay="300">
             <div class="why__rule" aria-hidden="true"></div>
-            <h3>Booked by phone</h3>
-            <p>One call, one conversation. Tell us what's bothering you and we'll match the service and the therapist before you arrive.</p>
+            <h3>Book how you like</h3>
+            <p>Choose your service, therapist and time online in under a minute, or call and we'll talk it through. Same calendar either way.</p>
           </div>
         </div>
       </div>
@@ -153,10 +153,24 @@
     <section class="section section--deep cta-band" id="book" aria-labelledby="book-title">
       <div class="container">
         <h2 class="rise" id="book-title">Your hour is waiting.</h2>
-        <p class="rise">Every appointment is booked by phone, so one short call settles the service, the therapist, and the time before you ever walk in.</p>
+        <p class="rise">Choose your service, your therapist and a time that suits you. Prefer to talk it through? The phone is always open.</p>
+
+        <!-- Square Appointments booking widget.
+             The script replaces itself with an iframe in place, so it must stay
+             inside this container: in <head> or as a child of <html> it redirects
+             the whole page to Square. Below 280px of container width it renders
+             Square's own blue button instead, so .booking keeps no side padding
+             on small screens. Do not add defer/async - it needs currentScript. -->
+        <div class="booking" id="book-widget">
+          <!-- Start Square Appointments Embed Code --><script src='https://square.site/appointments/buyer/widget/7wkaf66nn5cage/LXZYDMAX96EXE.js'></script><!-- End Square Appointments Embed Code -->
+          <noscript>
+            <p><a class="btn btn--gold" href="https://app.squareup.com/appointments/book/7wkaf66nn5cage/LXZYDMAX96EXE/start" target="_blank" rel="noopener">Book Your Session</a></p>
+            <p class="text-dim" style="font-size: var(--text-xs);">Opens our secure booking page at Square.</p>
+          </noscript>
+        </div>
 
         <div class="call-block rise">
-          <p class="call-block__label">Call to book</p>
+          <p class="call-block__label">Or call to book</p>
           <p class="call-block__number"><a href="tel:+14124500880">(412) 450-0880</a></p>
           <p class="call-block__hours">Call for availability, by appointment</p>
         </div>
@@ -180,7 +194,7 @@
             <li>Phone: <a href="tel:+14124500880">(412) 450-0880</a></li>
             <li>Email: <a href="mailto:liz@goldentrianglemassage.com">liz@goldentrianglemassage.com</a></li>
             <li>Hours: Call for availability, by appointment</li>
-            <li>Appointments by phone only</li>
+            <li>Book online, or call &mdash; whichever you prefer</li>
           </ul>
         </div>
         <div>
