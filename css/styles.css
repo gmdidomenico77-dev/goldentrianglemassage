@@ -63,6 +63,7 @@
 /* ---------- Reset-ish ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 96px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
@@ -365,72 +366,62 @@ a:hover { color: var(--gold-bright); }
 .cta-band h2 { font-size: var(--text-3xl); }
 .cta-band p { margin-inline: auto; color: var(--ivory-dim); }
 
-/* Booking — Square Appointments widget.
-   The embed script injects its own iframe with inline width/height and
-   min-height:500px. Inline styles beat stylesheet rules, so the height
-   override below needs !important. Keep .booking free of side padding at
-   small widths: under 280px of container width Square swaps the widget
-   for its own blue button. */
-.booking {
-  max-width: 940px;
-  margin-inline: auto;
-  margin-top: var(--space-12);
-}
-.booking iframe {
-  min-height: 820px !important;
-  border-radius: var(--radius);
-  background: var(--ivory);
-  display: block;
-}
-@media (max-width: 640px) {
-  .booking iframe { min-height: 900px !important; }
-}
-
-/* Call to book — the alternative to the widget above it. The number is
+/* Booking options — two equal routes, online or phone. The number is
    presented as content in display type, never hidden behind a button label
    that does nothing on desktop. */
-.call-block {
-  max-width: 34rem;
+.book-options {
+  display: grid;
+  gap: var(--space-8);
+  max-width: 54rem;
   margin: var(--space-12) auto 0;
-  padding: var(--space-12) var(--space-8);
+}
+@media (min-width: 760px) {
+  .book-options { grid-template-columns: 1fr 1fr; }
+}
+.book-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--surface);
   border: 1px solid var(--gold-muted);
   border-radius: var(--radius);
+  padding: var(--space-12) var(--space-8);
   text-align: center;
 }
-.call-block .call-block__label {
+.book-panel .book-panel__label {
   font-family: var(--font-mark);
   font-size: var(--text-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-6);
   max-width: none;
 }
-.call-block .call-block__number {
+.book-panel .book-panel__number {
   margin: 0;
   max-width: none;
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   line-height: 1.1;
 }
-.call-block__number a {
+.book-panel__number a {
   color: var(--gold);
   border-bottom: 1px solid var(--gold-muted);
   padding-bottom: var(--space-2);
   transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
-.call-block__number a:hover,
-.call-block__number a:focus-visible { color: var(--gold-bright); border-color: var(--gold); }
-.call-block .call-block__hours {
-  margin: var(--space-8) 0 0;
+.book-panel__number a:hover,
+.book-panel__number a:focus-visible { color: var(--gold-bright); border-color: var(--gold); }
+.book-panel .book-panel__action { margin: 0; max-width: none; }
+.book-panel .book-panel__note {
+  margin: var(--space-6) 0 0;
   max-width: none;
   color: var(--ivory-dim);
   font-size: var(--text-sm);
 }
 @media (max-width: 480px) {
-  .call-block { padding: var(--space-8) var(--space-4); }
+  .book-panel { padding: var(--space-8) var(--space-4); }
 }
 
 /* ---------- Footer ---------- */

@@ -40,6 +40,19 @@
     });
   }
 
+  /* Arriving at #book from another page: the hero is 92svh plus a large
+     image, so layout settles well after the browser's first scroll attempt,
+     and `scroll-behavior: smooth` turns that attempt into an animation that
+     the reflow cancels - landing the visitor back at the top. Re-run the jump
+     once everything has loaded. */
+  if (window.location.hash) {
+    window.addEventListener('load', function () {
+      var target;
+      try { target = document.querySelector(window.location.hash); } catch (err) { return; }
+      if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
   /* Scroll reveals — enhance already-visible content; never gate visibility */
   var risers = document.querySelectorAll('.rise');
   if (!reduceMotion && 'IntersectionObserver' in window && risers.length) {
